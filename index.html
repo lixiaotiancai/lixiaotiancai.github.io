@@ -458,7 +458,20 @@
             <p><strong>我的第一篇博客</strong></p>
 <p>刚刚建成比较简陋，以后会逐渐完善~</p>
 <p><img src="/images/firstBlogPic.jpg" alt="插入图片"></p>
-
+<p><div id="container"></div></p>
+<p><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"></p>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+owner: 'lixiaotiancai',
+repo: 'Comments',
+oauth: {
+client_id: '355a38a8c500569ed8c5',
+client_secret: 'b72735584bed64dd3a9a019db937caa0877f09fe',
+},
+})
+gitment.render('container')
+</script>
           
         
       
@@ -721,7 +734,7 @@
 
 
 
-
+﻿
 
   
     
