@@ -405,8 +405,6 @@
           
   <div class="comments" id="comments">
     
-      <div id="uyan_frame"></div>
-    
   </div>
 
 
@@ -630,15 +628,6 @@
 ﻿
 
   
-    
-
-    
-      <!-- UY BEGIN -->
-      <div id="uyan_frame"></div>
-      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2159120"></script>
-      <!-- UY END -->
-    
-  
 
 
 
@@ -648,6 +637,30 @@
 
 
 
+
+
+﻿
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = '';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: '9RNdRHG5wOtNMA2ytpvbdouO-gzGzoHsz',
+        appKey: 'QPrXmNDPVYEi1sEk0bOutU2v',
+        placeholder: '说点什么吗？',
+        avatar:'hide',
+        guest_info:['nick'],
+        pageSize:'' || 10,
+    });
+  </script>
 
 
 

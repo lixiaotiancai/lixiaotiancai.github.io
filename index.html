@@ -458,20 +458,7 @@
             <p><strong>我的第一篇博客</strong></p>
 <p>刚刚建成比较简陋，以后会逐渐完善~</p>
 <p><img src="/images/firstBlogPic.jpg" alt="插入图片"></p>
-<p><div id="container"></div></p>
-<p><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"></p>
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-var gitment = new Gitment({
-owner: 'lixiaotiancai',
-repo: 'Comments',
-oauth: {
-client_id: 'b754811b9300f2c2cb8b',
-client_secret: 'c8303651691aa0b79ae6248e52454015d7f46545',
-},
-})
-gitment.render('container')
-</script>
+
           
         
       
@@ -737,10 +724,6 @@ gitment.render('container')
 ﻿
 
   
-    
-
-    
-  
 
 
 
@@ -750,6 +733,30 @@ gitment.render('container')
 
 
 
+
+
+﻿
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = '';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: '9RNdRHG5wOtNMA2ytpvbdouO-gzGzoHsz',
+        appKey: 'QPrXmNDPVYEi1sEk0bOutU2v',
+        placeholder: '说点什么吗？',
+        avatar:'hide',
+        guest_info:['nick'],
+        pageSize:'' || 10,
+    });
+  </script>
 
 
 
