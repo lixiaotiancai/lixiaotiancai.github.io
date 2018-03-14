@@ -333,7 +333,7 @@
           
             <p>想练习一下荒废多年的算法，在codewars上刷题，遇到好的题目就来记录一下</p>
 <p>题目：Input:”is2 Thi1s T4est 3a”<br>      Output:”Thi1s is2 3a T4est”</p>
-<p>是一道简单的字符串排序题，思路就是先找出每个单词中的数字，在用<code>.sort()</code>函数进行排序但引出了很多东西</p>
+<p>是一道简单的字符串排序题，思路就是先找出每个单词中的数字，再用<code>.sort()</code>函数进行排序，但引出了很多东西</p>
 <p>code：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function findNumber(str)&#123;  </span><br><span class="line">    for(var i=0;i&lt;str.length;i++)&#123;  </span><br><span class="line">        var chr = str.charAt(i);  </span><br><span class="line">        if(!isNaN(chr))&#123;  </span><br><span class="line">            return parseInt(chr);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line">function order(words)&#123;  </span><br><span class="line">    return words.split(&quot; &quot;).sort(function(a,b)&#123;  </span><br><span class="line">        return findNumber(a) - findNumber(b);  </span><br><span class="line">    &#125;).join(&quot; &quot;);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>首先开头定义了一个辅助函数，用于找出每个单词中的数字。</p>
