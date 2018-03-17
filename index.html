@@ -260,6 +260,155 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/17/js经典题目解析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Xiao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欢迎来到李骁的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/17/js经典题目解析/" itemprop="url">js经典题目解析</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-17T22:18:56+08:00">
+                2018-03-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2>本文重点：let，var与作用域</h2>
+
+<p>今天看到了一道不错的题目：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a = [];</span><br><span class="line">for (var i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">  a[i] = function () &#123;</span><br><span class="line">    console.log(i);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line">a[6](); // 10</span><br></pre></td></tr></table></figure>
+<p>乍一看a<a href="">6</a>怎么都应该输出6才对啊，怎么会输出10呢。</p>
+<p>我看了网上很多的解释，以下这段摘自阮一峰老师：</p>
+<p>“上面代码中，变量i是var命令声明的，在全局范围内都有效，所以全局只有一个变量i。每一次<br>循环，变量i的值都会发生改变，而循环内被赋给数组a的函数内部的console.log(i)，里面的i指<br>向的就是全局的i。也就是说，所有数组a的成员里面的i，指向的都是同一个i，导致运行时输出的<br>是最后一轮的i的值，也就是 10。”</p>
+<p>我觉得阮一峰老师已经解释的很清楚了，但还是有些抽象，我用我自己的理解来谈一谈：</p>
+<p>我们看看每次的循环体内部到底是什么样子，这样比较形象：</p>
+<p>循环第一次：a[0] = function(){console.log(i)};这里可能会说，为什么不是console.log(1)呢？<br>这是因为在循环体中，函数未被调用，此时在编译时系统根本就不知道你function里面是什么，那么<br>这样表述就更为生动：a[0] = function(){狗};</p>
+<p>循环第二次：a[1] = function(){狗};</p>
+<p>…</p>
+<p>循环第十次：a[9] = function(){狗};</p>
+<p>好了循环结束，终于到调用函数的时候了，在执行a<a href="">6</a>的时候，系统就会去找这个函数到底是什么，<br>于是系统找到了在循环体中定义的a[6] = function(){console.log(i)};此时此刻系统要执行console.log<br>这个函数了,要对i进行赋值，但是全局变量i经过在循环体中的数次循环已经等于10，于是就会输出了<br>神奇的10。</p>
+<p>那么有没有办法让a[]正常输出0~9呢，答案是肯定的。我们只要知道了是什么导致了上题的结果就可以了。<br>上题之所以所有的a[]都会输出10是因为i是全局变量导致的，这也是ES5所诟病的一点，这会在无意中导致<br>bug的,假如我们能在每一次循环中声明一个新的变量，就可以解决问题。</p>
+<p>ECMA也意识到了这一点，于是ES6横空出世，在新的ES6准则中，引入了全新的块级作用域声明字符<code>let</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a = [];</span><br><span class="line">for (let i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">  a[i] = function () &#123;</span><br><span class="line">    console.log(i);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line">a[6](); // 6</span><br></pre></td></tr></table></figure>
+<p>当var换成了let后，a[6]输出了我们想要的结果，这又是为什么。还是来看每次的循环体：</p>
+<p>循环第一次：a[i] = function(){console.log(i)};  //i = 0</p>
+<p>循环第二次：a[i] = function(){console.log(i)};  //i = 1<br>不过此时此刻要注意一点，此i已经不是当年的那个i了，由于let是块级作用域，第一个i的生命到第一次<br>循环结束就结束了，循环第二次的i是一个全新的i。虽然同名同姓，却是不同的人。为了形象，我们给<br>第二次循环的i改个名字，叫“i2”。<br>那么第二次循环就变成了a[i2] = function(){console.log(i2)};</p>
+<p>…</p>
+<p>第十次循环：a[i10] = functino(){console.log(i10)};</p>
+<p>在执行a<a href="">6</a>的时候，系统会找到a<a href="">6</a>定义的function，是a[i6] = function(){console.log(i6)};<br>由于i6这个变量是独一无二的，所以理应得到了结果6。</p>
+<p>大致原理就可以这么理解，此时再引用阮一峰老师的一段话：</p>
+<p>“上面代码中，变量i是let声明的，当前的i只在本轮循环有效，所以每一次循环的i其实都是一个新<br>的变量，所以最后输出的是6。你可能会问，如果每一轮循环的变量i都是重新声明的，那它怎么知道<br>上一轮循环的值，从而计算出本轮循环的值？这是因为 JavaScript 引擎内部会记住上一轮循环的值，<br>初始化本轮的变量i时，就在上一轮循环的基础上进行计算。”</p>
+<p>另外此题可以更直观的表示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(var i = 0 ; i &lt; 10 ; i ++)&#123;</span><br><span class="line">    </span><br><span class="line">setTimeout(function()&#123;</span><br><span class="line">console.log(i)&#125;,1000*i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此代码会依次输出10次10</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(let i = 0 ; i &lt; 10 ; i ++)&#123;</span><br><span class="line">    </span><br><span class="line">setTimeout(function()&#123;</span><br><span class="line">console.log(i)&#125;,1000*i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此代码会依次输出1到9</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/16/codewars修行之旅3-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1213,7 +1362,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1226,7 +1375,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
