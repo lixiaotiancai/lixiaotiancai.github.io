@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="codewars," />
+  <meta name="keywords" content="js题目，排序," />
 
 
 
@@ -94,18 +94,24 @@
 
 
 
-<meta name="description" content="本文的重点是是关于JS的BigInteger的加法运算 今天在codewars上刷到一道题，题目大概是实现两个字符串数字相加，最后返回一个数字字符串 eg： sumString(“123”,”456”)  =&amp;gt; “579” 我不以为然的直接return (parseInt(a)+parseInt(b)).toString()结果显而易见，黑盒测试报错了一片。错误原因是因为精度不准。 这是由于">
-<meta name="keywords" content="codewars">
+<meta name="description" content="插入排序   时间复杂度O(n^2)，不适合数据量大的排序，在数据量较小时比较好用。 代码： 1234567891011121314151617function sort(arr) &amp;#123;  if(arr.length &amp;lt;= 1) &amp;#123;    return arr;  &amp;#125;; for(i=1;i&amp;lt;arr.length;i++)&amp;#123;     for(j=i;">
+<meta name="keywords" content="js题目，排序">
 <meta property="og:type" content="article">
-<meta property="og:title" content="codewars修行之旅3">
-<meta property="og:url" content="http://yoursite.com/2018/03/15/codewars修行之旅3/index.html">
+<meta property="og:title" content="用原生js写排序">
+<meta property="og:url" content="http://yoursite.com/2018/03/18/原生js写排序/index.html">
 <meta property="og:site_name" content="欢迎来到李骁的博客">
-<meta property="og:description" content="本文的重点是是关于JS的BigInteger的加法运算 今天在codewars上刷到一道题，题目大概是实现两个字符串数字相加，最后返回一个数字字符串 eg： sumString(“123”,”456”)  =&amp;gt; “579” 我不以为然的直接return (parseInt(a)+parseInt(b)).toString()结果显而易见，黑盒测试报错了一片。错误原因是因为精度不准。 这是由于">
+<meta property="og:description" content="插入排序   时间复杂度O(n^2)，不适合数据量大的排序，在数据量较小时比较好用。 代码： 1234567891011121314151617function sort(arr) &amp;#123;  if(arr.length &amp;lt;= 1) &amp;#123;    return arr;  &amp;#125;; for(i=1;i&amp;lt;arr.length;i++)&amp;#123;     for(j=i;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-15T12:32:01.547Z">
+<meta property="og:image" content="http://yoursite.com/images/selectionSort.gif">
+<meta property="og:image" content="http://yoursite.com/images/bubbleSort.gif">
+<meta property="og:image" content="http://yoursite.com/images/insertionSort.gif">
+<meta property="og:image" content="http://yoursite.com/images/quickSort.gif">
+<meta property="og:image" content="http://yoursite.com/images/output.png">
+<meta property="og:updated_time" content="2018-03-18T14:21:57.027Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="codewars修行之旅3">
-<meta name="twitter:description" content="本文的重点是是关于JS的BigInteger的加法运算 今天在codewars上刷到一道题，题目大概是实现两个字符串数字相加，最后返回一个数字字符串 eg： sumString(“123”,”456”)  =&amp;gt; “579” 我不以为然的直接return (parseInt(a)+parseInt(b)).toString()结果显而易见，黑盒测试报错了一片。错误原因是因为精度不准。 这是由于">
+<meta name="twitter:title" content="用原生js写排序">
+<meta name="twitter:description" content="插入排序   时间复杂度O(n^2)，不适合数据量大的排序，在数据量较小时比较好用。 代码： 1234567891011121314151617function sort(arr) &amp;#123;  if(arr.length &amp;lt;= 1) &amp;#123;    return arr;  &amp;#125;; for(i=1;i&amp;lt;arr.length;i++)&amp;#123;     for(j=i;">
+<meta name="twitter:image" content="http://yoursite.com/images/selectionSort.gif">
 
 
 
@@ -134,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/15/codewars修行之旅3/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/18/原生js写排序/"/>
 
 
 
 
 
-  <title>codewars修行之旅3 | 欢迎来到李骁的博客</title>
+  <title>用原生js写排序 | 欢迎来到李骁的博客</title>
   
 
 
@@ -263,7 +269,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/15/codewars修行之旅3/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/18/原生js写排序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Li Xiao">
@@ -280,7 +286,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">codewars修行之旅3</h1>
+          <h1 class="post-title" itemprop="name headline">用原生js写排序</h1>
         
 
         <div class="post-meta">
@@ -292,8 +298,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-15T19:53:19+08:00">
-                2018-03-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-18T20:24:58+08:00">
+                2018-03-18
               </time>
             
 
@@ -330,28 +336,29 @@
       
 
       
-        <p><strong><h2>本文的重点是是关于JS的BigInteger的加法运算</h2></strong></p>
-<p>今天在codewars上刷到一道题，题目大概是实现两个字符串数字相加，最后返回一个数字字符串</p>
-<p>eg： sumString(“123”,”456”)  =&gt; “579”</p>
-<p>我不以为然的直接<code>return (parseInt(a)+parseInt(b)).toString()</code>结果显而易见，黑盒测试报错了<br>一片。错误原因是因为精度不准。</p>
-<p>这是由于js自身进度问题所导致的，js在数字超过17位时，就不行了。在控制台打出123456789012345678</p>
-<p>按下回车，他会返回一个123456789012345680，数字再大就会返回类似1.2345678901234568e+21的值。</p>
-<p>也就是说在运算大型数字时，普通的加减乘除是不行了，那么我们应该怎么处理呢。</p>
-<p>其实思路就是和小学学过的竖式差不多，把列竖式的过程用代码写出来，就可以了。</p>
-<p>代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function sumStrings(a, b) &#123;</span><br><span class="line">  var res = &apos;&apos;, c = 0;</span><br><span class="line">  a = a.split(&apos;&apos;);</span><br><span class="line">  b = b.split(&apos;&apos;);</span><br><span class="line">  while (a.length || b.length || c) &#123;</span><br><span class="line">    c += ~~a.pop() + ~~b.pop();</span><br><span class="line">    res = c % 10 + res;</span><br><span class="line">    c = c &gt; 9;</span><br><span class="line">  &#125;</span><br><span class="line">  return res.replace(/^0+/, &apos;&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>变量res用于记录各位的数字，而c是用于记录是否存在进位。</p>
-<p>开始先对字符串a，b做了一个split()操作，目的是为了把字符串打散成一个存着当个字符的Array()数组<br>便于我们之后的pop()操作。</p>
-<p>while循环判定条件，只要a的长度或者b长度或者c不为0，循环就可以继续进行。</p>
-<p>接下来见到了一个较为陌生的运算符 ~~ </p>
-<p>~~是一种利用符号进行的类型转换,转换成数字类型</p>
-<p>效果如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">~~true == 1</span><br><span class="line">~~false == 0</span><br><span class="line">~~&quot;&quot; == 0</span><br><span class="line">~~[] == 0</span><br><span class="line"></span><br><span class="line">~~undefined ==0</span><br><span class="line">~~!undefined == 1</span><br><span class="line">~~null == 0</span><br><span class="line">~~!null == 1</span><br></pre></td></tr></table></figure>
-<p><code>这个运算符应用于本题就十分的方便，首先，当a[]pop空了，而b[]还没有pop空时，~~a[]可以直接返回0
-省去了我们开始还要比较a,b的长度，长度短的前段补0的烦恼。其次，当c为True时，~~c直接返回1，从
-而可以达到进位的目的。</code></p>
-<p>其他就没有什么好说的了。</p>
-<p>本题主要收获两点：1.Js的大整数进度运算问题。2.~~运算符。</p>
+        <h2>插入排序</h2>
+
+<p><img src="/images/selectionSort.gif" alt="插入图片"></p>
+<p>时间复杂度O(n^2)，不适合数据量大的排序，在数据量较小时比较好用。</p>
+<p>代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function sort(arr) &#123;</span><br><span class="line">  if(arr.length &lt;= 1) &#123;</span><br><span class="line">    return arr;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line"> for(i=1;i&lt;arr.length;i++)&#123;</span><br><span class="line">     for(j=i;j&gt;=0;j--)&#123;</span><br><span class="line">	     if(arr[j]&lt;arr[j-1])&#123;</span><br><span class="line">		     var t = arr[j];</span><br><span class="line">		     arr[j] = arr[j-1];</span><br><span class="line">		     arr[j-1] = t;</span><br><span class="line">		 &#125;;</span><br><span class="line">     &#125;;</span><br><span class="line"> &#125;;</span><br><span class="line"></span><br><span class="line">  return arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2>冒泡排序</h2>
+
+<p><img src="/images/bubbleSort.gif" alt="插入图片"></p>
+<p>时间复杂度O(n^2)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function sort(arr) &#123;</span><br><span class="line">  if(arr.length &lt;= 1) &#123;</span><br><span class="line">    return arr</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">for(i=0;i&lt;arr.length;i++)&#123;</span><br><span class="line">    for(j=0;j&lt;arr.length-i;j++)&#123;</span><br><span class="line">	    if(arr[j+1]&lt;arr[j])&#123;</span><br><span class="line">		    var t = arr[j];</span><br><span class="line">			arr[j] = arr[j+1];</span><br><span class="line">			arr[j+1] = t;</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">  return arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2>选择排序</h2>
+
+<p><img src="/images/insertionSort.gif" alt="插入图片"></p>
+<p>交换次数少，空间复杂度较低</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function selectionSort(arr) &#123;</span><br><span class="line">    if(arr.length &lt;= 1) &#123;</span><br><span class="line">        return arr</span><br><span class="line">    &#125;</span><br><span class="line">    for (i = 0; i &lt; arr.length - 1; i++) &#123;</span><br><span class="line">        min = i;</span><br><span class="line">        for (j = i + 1; j &lt; arr.length; j++) &#123;</span><br><span class="line">            if (arr[min] &gt; arr[j])</span><br><span class="line">                min = j;</span><br><span class="line">                t = arr[min];</span><br><span class="line">                arr[min] = arr[i];</span><br><span class="line">                arr[i] = t;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return arr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2>快速排序</h2>
+
+<p><img src="/images/quickSort.gif" alt="插入图片"></p>
+<p>快速排序应该是比较重要的了,时间复杂度仅为O(NlogN)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function quickSort(arr) &#123;</span><br><span class="line">  if (arr.length &lt;= 1) &#123;</span><br><span class="line">    return arr.slice(0);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  var left = [];</span><br><span class="line">  var right = [];</span><br><span class="line">  var mid = [arr[0]]; //选择第一个元素为中枢</span><br><span class="line"></span><br><span class="line">  for (var i = 1; i &lt; arr.length; i++) &#123;</span><br><span class="line">    if (arr[i] &lt; mid[0]) &#123;</span><br><span class="line">      left.push(arr[i]);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      right.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">	 console.log(left,mid,right);</span><br><span class="line">  &#125;</span><br><span class="line">  return quickSort(left).concat(mid.concat(quickSort(right)));</span><br><span class="line">&#125;</span><br><span class="line">	quickSort([6,3,1,3,2,8,5,6,7.5,7]);</span><br></pre></td></tr></table></figure>
+<p>在控制台中输出上述代码，结果如下：</p>
+<p><img src="/images/output.png" alt="插入图片"></p>
 
       
     </div>
@@ -369,7 +376,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/codewars/" rel="tag"># codewars</a>
+            <a href="/tags/js题目，排序/" rel="tag"># js题目，排序</a>
           
         </div>
       
@@ -382,8 +389,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/14/codewars修炼之旅2/" rel="next" title="codewars修行之旅2">
-                <i class="fa fa-chevron-left"></i> codewars修行之旅2
+              <a href="/2018/03/17/js经典题目解析/" rel="next" title="js经典题目解析">
+                <i class="fa fa-chevron-left"></i> js经典题目解析
               </a>
             
           </div>
@@ -391,10 +398,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/16/codewars修行之旅3-1/" rel="prev" title="codewars修行之旅3.1">
-                codewars修行之旅3.1 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -519,7 +522,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">本文的重点是是关于JS的BigInteger的加法运算</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">插入排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">选择排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">快速排序</span></a></li></ol></div>
             
 
           </div>
