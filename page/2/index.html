@@ -260,6 +260,142 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/16/codewars修行之旅3-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Xiao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欢迎来到李骁的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/16/codewars修行之旅3-1/" itemprop="url">codewars修行之旅3.1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-16T23:00:04+08:00">
+                2018-03-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>之所以叫3.1是因为本文为3的进阶版。</p>
+<p>在codewars修行之旅3中，我学会了制作加法器来计算大整数相加，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function sumStrings(a,b)&#123;</span><br><span class="line">    var res=&apos;&apos;, c=0;</span><br><span class="line">    a = a.split(&apos;&apos;);</span><br><span class="line">    b = b.split(&apos;&apos;);</span><br><span class="line">    while (a.length || b.length || c)&#123;</span><br><span class="line">        c += ~~a.pop() + ~~b.pop();</span><br><span class="line">        res = c % 10 + res;</span><br><span class="line">        c = c&gt;9;</span><br><span class="line">    &#125;</span><br><span class="line">    return res.replace(/^0+/,&apos;&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>那既然能制作加法器实现大整数相加而不损失精度，那能不能制作一个乘法器来计算大整数相乘呢？<br>答案是肯定的，因为乘法的本质其实也是加法，只要稍加转换，在加法器的基础上添油加醋，我们<br>就可以实现一个乘法器。</p>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">function sumStrings(a, b) &#123;</span><br><span class="line">  var res = &apos;&apos;, c = 0;</span><br><span class="line">  a = a.split(&apos;&apos;);</span><br><span class="line">  b = b.split(&apos;&apos;);</span><br><span class="line">  while (a.length || b.length || c) &#123;</span><br><span class="line">    c += ~~a.pop() + ~~b.pop();</span><br><span class="line">    res = c % 10 + res;</span><br><span class="line">    c = c &gt; 9;</span><br><span class="line">  &#125;</span><br><span class="line">  return res;</span><br><span class="line">&#125;;</span><br><span class="line">function multiply(a, b)&#123;</span><br><span class="line">    var a = a.split(&quot;&quot;);</span><br><span class="line">    var b = b.split(&quot;&quot;);</span><br><span class="line">    var c = 0;      //进位</span><br><span class="line">    var lena = a.length;</span><br><span class="line">    var lenb = b.length;</span><br><span class="line">    var mulate = 0;</span><br><span class="line">    var addString = [];</span><br><span class="line">    var output = &apos;&apos;;</span><br><span class="line">    for(i=0;i&lt;lena;i++)&#123;addString[i] = new Array(lenb-1)&#125;;</span><br><span class="line">    for(i=lena-1; i&gt;=0; i--)&#123;</span><br><span class="line">        c = 0;</span><br><span class="line">        for(j=lenb-1; j&gt;=0; j--)&#123;</span><br><span class="line">            mulate = parseInt(a[i]) * parseInt(b[j]) + c;</span><br><span class="line">            mulate.toString().length==1 ? c=0 : c=Number(mulate.toString()[0]);</span><br><span class="line">            if(j==0)&#123;addString[i].unshift(mulate);</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">            addString[i].unshift(mulate%10);&#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        addString[i] = addString[i].join(&quot;&quot;);</span><br><span class="line">        </span><br><span class="line">    &#125;;</span><br><span class="line">    for(i=0; i&lt;addString.length; i++)&#123;</span><br><span class="line">        for(j=addString.length-1; j&gt;i; j--)&#123;</span><br><span class="line">            addString[i] = addString[i].toString()+&quot;0&quot;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">    for(i=0; i&lt;addString.length; i++)&#123;</span><br><span class="line">        output = sumStrings(output.toString(), addString[i].toString());</span><br><span class="line">    &#125;;</span><br><span class="line">    if(parseInt(output) == 0)&#123;return &quot;0&quot;;&#125;;</span><br><span class="line">    return output.replace(/^0+/, &apos;&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>来检测一下，我们调用<code>multiply()</code>函数。<br>multiply(“123243453545644”, “98765434567896”)<br>很正确的得到了结果”12172193247083832764253045024”。丝毫没有损失精度。</p>
+<p>我的思路就是把列竖式算乘法的过程转化成代码。先把题目化简成1位数 * 多位数，这个不难实现，<br>用进位法就可以了。然后题目就变成了多个大整数相加，就可以直接套用已经设计好的加法器了，<br>这期间要注意的是补”0”。</p>
+<p>接下来我们来挑战更高的难度，我们引入了小数点和正负号的计算。</p>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">var back = 0;</span><br><span class="line">var backa = 0;</span><br><span class="line">var bakckb = 0;</span><br><span class="line">function changeNum(n)&#123;</span><br><span class="line">    back = 0;</span><br><span class="line">    if(n.indexOf(&quot;-&quot;)!=-1)&#123;n = n.replace(&quot;-&quot;,&quot;&quot;);&#125;;</span><br><span class="line">    if(n.indexOf(&quot;.&quot;)!=-1)&#123;</span><br><span class="line">        back = n.length - n.indexOf(&quot;.&quot;) - 1;</span><br><span class="line">        n = n.replace(&quot;.&quot;,&quot;&quot;);</span><br><span class="line">    &#125;;</span><br><span class="line">    return n;</span><br><span class="line">&#125;;</span><br><span class="line">function sumStrings(a, b) &#123;</span><br><span class="line">  var res = &apos;&apos;, c = 0;</span><br><span class="line">  a = a.split(&apos;&apos;);</span><br><span class="line">  b = b.split(&apos;&apos;);</span><br><span class="line">  while (a.length || b.length || c) &#123;</span><br><span class="line">    c += ~~a.pop() + ~~b.pop();</span><br><span class="line">    res = c % 10 + res;</span><br><span class="line">    c = c &gt; 9;</span><br><span class="line">  &#125;</span><br><span class="line">  return res;</span><br><span class="line">&#125;;</span><br><span class="line">function multiply(a, b)&#123;</span><br><span class="line">    var a1 = a;</span><br><span class="line">    var b1 = b;</span><br><span class="line">    var a = changeNum(a).split(&quot;&quot;);</span><br><span class="line">    var b = changeNum(b).split(&quot;&quot;);</span><br><span class="line">    var c = 0;      //进位</span><br><span class="line">    var lena = a.length;</span><br><span class="line">    var lenb = b.length;</span><br><span class="line">    var mulate = 0;</span><br><span class="line">    var addString = [];</span><br><span class="line">    var output = &apos;&apos;;</span><br><span class="line">    for(i=0;i&lt;lena;i++)&#123;addString[i] = new Array(lenb-1)&#125;;</span><br><span class="line">    for(i=lena-1; i&gt;=0; i--)&#123;</span><br><span class="line">        c = 0;</span><br><span class="line">        for(j=lenb-1; j&gt;=0; j--)&#123;</span><br><span class="line">            mulate = parseInt(a[i]) * parseInt(b[j]) + c;</span><br><span class="line">            mulate.toString().length==1 ? c=0 : c=Number(mulate.toString()[0]);</span><br><span class="line">            if(j==0)&#123;addString[i].unshift(mulate);</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">            addString[i].unshift(mulate%10);&#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        addString[i] = addString[i].join(&quot;&quot;);</span><br><span class="line">        </span><br><span class="line">    &#125;;</span><br><span class="line">    for(i=0; i&lt;addString.length; i++)&#123;</span><br><span class="line">        for(j=addString.length-1; j&gt;i; j--)&#123;</span><br><span class="line">            addString[i] = addString[i].toString()+&quot;0&quot;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">    for(i=0; i&lt;addString.length; i++)&#123;</span><br><span class="line">        output = sumStrings(output.toString(), addString[i].toString());</span><br><span class="line">    &#125;;</span><br><span class="line">    if(parseInt(output) == 0)&#123;return &quot;0&quot;;&#125;;</span><br><span class="line">    output = output.replace(/^0+/, &apos;&apos;);</span><br><span class="line">    changeNum(a1);</span><br><span class="line">    backa = back;</span><br><span class="line">    changeNum(b1);</span><br><span class="line">    backb = back;</span><br><span class="line">    back = backa + backb;</span><br><span class="line">    if(back!=0)&#123;</span><br><span class="line">        if(back&gt;=output.length)&#123;</span><br><span class="line">            var lenOutput = output.length;</span><br><span class="line">            for(i=0;i&lt;=back-lenOutput;i++)&#123;</span><br><span class="line">                output = &quot;0&quot; + output;</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;;</span><br><span class="line">        output = output.substring(0,output.length-back) + &quot;.&quot; + output.substring(output.length-back);</span><br><span class="line">    &#125;;</span><br><span class="line">    if(output.indexOf(&quot;.&quot;)!=-1)&#123;</span><br><span class="line">        var delCount = 0;</span><br><span class="line">        i = output.length - 1;</span><br><span class="line">        while(output[i]==&quot;0&quot; &amp;&amp; output[i]!=&quot;.&quot;)&#123;</span><br><span class="line">            delCount++;</span><br><span class="line">            i--;</span><br><span class="line">        &#125;;</span><br><span class="line">        output = output.substring(0,output.length - delCount);</span><br><span class="line">        if(output[output.length-1]==&quot;.&quot;)&#123;</span><br><span class="line">            output = output.substring(0,output.length-1);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">    if((a1[0]==&quot;-&quot;&amp;&amp;b1[0]!=&quot;-&quot;) || (a1[0]!=&quot;-&quot;&amp;&amp;b1[0]==&quot;-&quot;))&#123;</span><br><span class="line">        output = &quot;-&quot; + output;</span><br><span class="line">    &#125;;</span><br><span class="line">    return output;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我的思路是先去除小数点和正负号，把问题转化成我们刚做好的乘法器，最后在处理小数点的移位问题<br>和结果正负的问题。</p>
+<p>我们来测试一下</p>
+<p>multiply(“-3212131.75567575675”, “98765456.32657657657567665”)</p>
+<p>得到”-317247658630403.6958374344540899261320548875”</p>
+<p>十分完美。</p>
+<p>不过问题是代码仍旧比较累赘，有些地方的处理过于繁琐，待优化空间很大。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/15/codewars修行之旅3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1081,7 +1217,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
