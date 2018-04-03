@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="js,继承," />
 
 
 
@@ -94,14 +94,18 @@
 
 
 
+<meta name="description" content="今天来谈谈继承的几种形式吧。 1.原型链继承  12345678910111213141516171819202122232425var Person = function(name)&amp;#123;    this.name = name || &amp;quot;noName&amp;quot;;&amp;#125;Person.prototype.getName = function()&amp;#123;    return">
+<meta name="keywords" content="js,继承">
 <meta property="og:type" content="article">
 <meta property="og:title" content="进阶的继承">
 <meta property="og:url" content="http://yoursite.com/2018/04/02/进阶的继承/index.html">
 <meta property="og:site_name" content="欢迎来到李骁的博客">
+<meta property="og:description" content="今天来谈谈继承的几种形式吧。 1.原型链继承  12345678910111213141516171819202122232425var Person = function(name)&amp;#123;    this.name = name || &amp;quot;noName&amp;quot;;&amp;#125;Person.prototype.getName = function()&amp;#123;    return">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-02T13:09:02.509Z">
+<meta property="og:updated_time" content="2018-04-02T15:35:34.433Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="进阶的继承">
+<meta name="twitter:description" content="今天来谈谈继承的几种形式吧。 1.原型链继承  12345678910111213141516171819202122232425var Person = function(name)&amp;#123;    this.name = name || &amp;quot;noName&amp;quot;;&amp;#125;Person.prototype.getName = function()&amp;#123;    return">
 
 
 
@@ -326,7 +330,10 @@
       
 
       
-        
+        <p>今天来谈谈继承的几种形式吧。</p>
+<h4>1.原型链继承</h4>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">var Person = function(name)&#123;</span><br><span class="line">    this.name = name || &quot;noName&quot;;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.getName = function()&#123;</span><br><span class="line">    return `我的名字是： $&#123;this.name&#125;`;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">var Student = function(name)&#123;</span><br><span class="line">    this.grade = 1;</span><br><span class="line">    this.name = name</span><br><span class="line">&#125;</span><br><span class="line">Student.prototype = new Person();</span><br><span class="line">Student.prototype.getGrade = function()&#123;</span><br><span class="line">    return this.grade;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var lixiao = new Student(&quot;lixiao&quot;);</span><br><span class="line"></span><br><span class="line">console.log(lixiao.name);    //lixiao</span><br><span class="line">console.log(lixiao.getName());    //我的名字是： 李骁  </span><br><span class="line">console.log(lixiao.getGrade());    //1</span><br><span class="line">console.log(lixiao instanceof Student);   //true</span><br><span class="line">console.log(lixiao instanceof Person);    //true</span><br><span class="line">console.log(lixiao.__proto__ === Student.prototype);   //true</span><br><span class="line">console.log(lixiao.__proto__.__proto__ === Person.prototype);   //true</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -340,6 +347,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+            <a href="/tags/继承/" rel="tag"># 继承</a>
+          
+        </div>
       
 
       
@@ -359,6 +374,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/03/Next训练营Day2/" rel="prev" title="Next训练营Day2">
+                Next训练营Day2 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -410,8 +429,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -426,7 +454,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -439,7 +467,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
@@ -464,6 +492,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">1.原型链继承</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
