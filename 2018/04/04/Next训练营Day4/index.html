@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="codewars," />
+  <meta name="keywords" content="Next训练营," />
 
 
 
@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="题目：Bob is preparing to pass IQ test. The most frequent task in this test is to find out which one of the given numbers differs from the others. Bob observed that one number usually differs from the ot">
-<meta name="keywords" content="codewars">
+<meta name="description" content="今天来学习一下有关npm的常用简单命令。 npm install package最简单的的下载包命令，默认下载的是最新版本。 npm install package version下载指定的版本。 npm init在当前目录下生成package.json文件，里面是关于项目的一些配置。 npm install package --s 或 -S把模块的名称及版本信息保存进package.json的d">
+<meta name="keywords" content="Next训练营">
 <meta property="og:type" content="article">
-<meta property="og:title" content="codewars修行之旅2">
-<meta property="og:url" content="http://yoursite.com/2018/03/14/codewars修炼之旅2/index.html">
+<meta property="og:title" content="Next训练营Day4">
+<meta property="og:url" content="http://yoursite.com/2018/04/04/Next训练营Day4/index.html">
 <meta property="og:site_name" content="欢迎来到李骁的博客">
-<meta property="og:description" content="题目：Bob is preparing to pass IQ test. The most frequent task in this test is to find out which one of the given numbers differs from the others. Bob observed that one number usually differs from the ot">
+<meta property="og:description" content="今天来学习一下有关npm的常用简单命令。 npm install package最简单的的下载包命令，默认下载的是最新版本。 npm install package version下载指定的版本。 npm init在当前目录下生成package.json文件，里面是关于项目的一些配置。 npm install package --s 或 -S把模块的名称及版本信息保存进package.json的d">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-14T13:01:17.821Z">
+<meta property="og:updated_time" content="2018-04-04T13:26:01.779Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="codewars修行之旅2">
-<meta name="twitter:description" content="题目：Bob is preparing to pass IQ test. The most frequent task in this test is to find out which one of the given numbers differs from the others. Bob observed that one number usually differs from the ot">
+<meta name="twitter:title" content="Next训练营Day4">
+<meta name="twitter:description" content="今天来学习一下有关npm的常用简单命令。 npm install package最简单的的下载包命令，默认下载的是最新版本。 npm install package version下载指定的版本。 npm init在当前目录下生成package.json文件，里面是关于项目的一些配置。 npm install package --s 或 -S把模块的名称及版本信息保存进package.json的d">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/14/codewars修炼之旅2/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/04/Next训练营Day4/"/>
 
 
 
 
 
-  <title>codewars修行之旅2 | 欢迎来到李骁的博客</title>
+  <title>Next训练营Day4 | 欢迎来到李骁的博客</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/14/codewars修炼之旅2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/04/Next训练营Day4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Li Xiao">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">codewars修行之旅2</h1>
+          <h1 class="post-title" itemprop="name headline">Next训练营Day4</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-14T20:31:41+08:00">
-                2018-03-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-04T21:01:05+08:00">
+                2018-04-04
               </time>
             
 
@@ -330,12 +330,15 @@
       
 
       
-        <p>题目：<br>Bob is preparing to pass IQ test. The most frequent task in this test is to find out which one of the given numbers differs from the others. Bob observed that one number usually differs from the others in evenness. Help Bob — to check his answers, he needs a program that among the given numbers finds one that is different in evenness, and return a position of this number.</p>
-<p>! Keep in mind that your task is to help Bob solve a real IQ test, which means indexes of the elements start from 1 (not 0)</p>
-<p>eg：iqTest(“2 4 7 8 10”) =&gt; 3    iqTest(“1 2 1 1”) =&gt; 2</p>
-<p>这道题的大概意思是找出一堆数字中不和谐的那个数并返回其位置,解决问题代码如下，结果黑盒测试却<br>各种过不了，最后才发现我以为这组数列必须是<b>等差数列</b>，不符合等差数列的数字就是错的，而题目要<br>求的实质就是让你找出一堆偶数中的奇数或者一堆奇数中的偶数。。。。。论审题的重要性</p>
-<p>码了挺多也不容易，记录一下。。。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">function iqTest(numbers)&#123;</span><br><span class="line">  a = numbers.split(&quot; &quot;);</span><br><span class="line">  arr = [];</span><br><span class="line">  for(i=0; i&lt;a.length; i++)&#123;</span><br><span class="line">      arr.push(Number(a[i]))</span><br><span class="line">  &#125;;</span><br><span class="line">  if(arr.length&lt;=3)&#123;</span><br><span class="line">      if(arr[0]==arr[1])&#123;return 3&#125;;</span><br><span class="line">      if(arr[1]==arr[2])&#123;return 1&#125;;</span><br><span class="line">      if(arr[0]==arr[2])&#123;return 2&#125;;</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">      /*这里我的思路是先假设前两个数都是正确的，以前两个数的差值作为基准，依次推</span><br><span class="line">      算后面的数字，如果后面的数字推测有正确的，说明前两个数字正确，只要找到后面</span><br><span class="line">      没有对应上的数字位置即可。如果后面推测的数字没有一个对应上的，说明前两个数</span><br><span class="line">      字有个错的，那么最后两个数字一定是对的，那么就以最后两个数字作为基准，校验</span><br><span class="line">      前面的数字即可。*/</span><br><span class="line">      var dif = arr[1] - arr[0];</span><br><span class="line">      for(i=2; i&lt;arr.length; i++)&#123;</span><br><span class="line">          if((arr[0] + dif*i) == arr[i])&#123;</span><br><span class="line">              for(j=2; j&lt;arr.length; j++)&#123;</span><br><span class="line">                  if((arr[0] + dif*j) != arr[j])&#123;</span><br><span class="line">                      return j+1;</span><br><span class="line">                  &#125;;</span><br><span class="line">              &#125;;   </span><br><span class="line">          &#125;else&#123;</span><br><span class="line">              dif = arr[arr.length-1]-arr[arr.length-2];</span><br><span class="line">              for(i=2; i&lt;=arr.length; i++)&#123;</span><br><span class="line">                  if((arr[arr.length-1] - dif*i) != arr[arr.length-1-i])&#123;</span><br><span class="line">                      return arr.length-i;</span><br><span class="line">                  &#125;;</span><br><span class="line">              &#125;;</span><br><span class="line">          &#125;;</span><br><span class="line">      &#125;;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>今天来学习一下有关npm的常用简单命令。</p>
+<p><code>npm install package</code>最简单的的下载包命令，默认下载的是最新版本。</p>
+<p><code>npm install package version</code>下载指定的版本。</p>
+<p><code>npm init</code>在当前目录下生成package.json文件，里面是关于项目的一些配置。</p>
+<p><code>npm install package --s 或 -S</code>把模块的名称及版本信息保存进package.json的dependencies中，也就是<br>加载项目所依赖的模块信息。当然–s和-S可以省略。这里要注意-S是大写。</p>
+<p><code>npm install package --save-dev 或 -D</code>把模块版本信息加载到package.json的devDependencies,也就是生产<br>环境依赖中。</p>
+<p><code>npm install package -g 或 --global</code>直接安装模块到全局。</p>
+<p><code>npm uninstall package</code>卸载模块。</p>
+<p>当我们没有下载任何模块，但package中的依赖里已配好模块的相关信息，可以直接<code>npm install</code>来安装项目中<br>所需要的依赖包。</p>
 
       
     </div>
@@ -353,7 +356,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/codewars/" rel="tag"># codewars</a>
+            <a href="/tags/Next训练营/" rel="tag"># Next训练营</a>
           
         </div>
       
@@ -366,8 +369,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/14/codewars修行之旅/" rel="next" title="codewars修行之旅">
-                <i class="fa fa-chevron-left"></i> codewars修行之旅
+              <a href="/2018/04/03/Next训练营Day3/" rel="next" title="Next训练营Day3">
+                <i class="fa fa-chevron-left"></i> Next训练营Day3
               </a>
             
           </div>
@@ -376,8 +379,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/15/codewars修行之旅3/" rel="prev" title="codewars修行之旅3">
-                codewars修行之旅3 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/04/Next训练营Day5/" rel="prev" title="Next训练营Day5">
+                Next训练营Day5 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
