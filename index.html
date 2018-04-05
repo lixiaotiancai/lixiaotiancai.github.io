@@ -260,6 +260,147 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/05/Next训练营Day6Day7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Xiao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欢迎来到李骁的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/05/Next训练营Day6Day7/" itemprop="url">Next训练营Day6Day7</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-05T18:00:40+08:00">
+                2018-04-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这两天主要就是介绍了一下js模块化。</p>
+<p>Day7的练习有一道多选题，还不错，记录一下：<br>1，模块化规范主要是为了解决命名冲突和模块之间的依赖管理问题。<br>2，目前通用的模块化规范有CommonJS，AMD，CMD等。<br>3，模块化规范使开发人员能够以同样的方式来编写模块。<br>4，模块化规范能够让JS的模块化开发变得简单和自然。</p>
+<p>这里总结一下js模块化的发展历程吧：</p>
+<p>早在ajax发明之前，js的用途仅仅只是实现一下前端页面简单的逻辑或实现一点简单的动画效果，那时的js代码没有多少，<br>只需要从上至下执行就可以了。</p>
+<p>后来ajax应运而生，前端可以向服务器发出请求并申请返回数据，这就使得js前端的代码量暴涨，很多问题也随之出现，这<br>其中最严重的问题有：1，全局变量污染、2，命名冲突、3，代码量庞大不利于维护。</p>
+<p>这就使得人们不得不思考使用模块化的概念来管理代码，自执行函数算是模块化发展的萌芽。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var model = (function()&#123;</span><br><span class="line">    var num = 1;</span><br><span class="line">    return function()&#123;</span><br><span class="line">        return num;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+<p>还有前缀命名法等方法也陆续被人们提出。</p>
+<p>直到2009年nodejs的问世，js代码可以运行在服务端，模块开发规范CommonJs也意味着js的模块化开发逐渐开始健壮。以下是<br>规范的内容：</p>
+<ol>
+<li>模块的标识应遵循的规则（书写规范）</li>
+<li>定义全局函数require，通过传入模块标识来引入其他模块，执行的结果即为别的模块暴漏出来的API</li>
+<li>如果被require函数引入的模块中也包含依赖，那么依次加载这些依赖</li>
+<li>如果引入模块失败，那么require函数应该报一个异常</li>
+<li>模块通过变量exports来向往暴漏API，exports只能是一个对象，暴漏的API须作为此对象的属性。<br>当然了这是最初Modules/1.0规范，所以仍存在很多问题，比如外层没有function的包裹，变量全暴露在全局，还有资源的加载<br>问题，当然这些问题在后续的版本中都陆续被完善了。</li>
+</ol>
+<p>再到后来有了AMD（异步加载所需要的模块）和RequireJS。<br>AMD规范包含以下内容：<br>  1，用全局函数define来定义模块，用法为：define(id?, dependencies?, factory);<br>  2，id为模块标识，遵从CommonJS Module Identifiers规范<br>  3，dependencies为依赖的模块数组，在factory中需传入形参与之一一对应<br>  4，如果dependencies的值中有”require”、”exports”或”module”，则与commonjs中的实现保持一致<br>  5，如果dependencies省略不写，则默认为[“require”, “exports”, “module”]，factory中也会默认传入require,exports,module<br>  6，如果factory为函数，模块对外暴漏API的方法有三种：return任意类型的数据、exports.xxx=xxx、module.exports=xxx<br>  7，如果factory为对象，则该对象即为模块的返回值</p>
+<p>。。。</p>
+<p>模块化经历了各种腥风血雨，ECMA终于意识到了问题，终于在ES6中加入了模块标准。</p>
+<p>ES6 模块主要具备以下几个基本特点：</p>
+<p>1，自动开启严格模式，即使你没有写 use strict<br>2，每个模块都有自己的上下文，每一个模块内声明的变量都是局部变量，不会污染全局作用域<br>3，模块中可以导入和导出各种类型的变量，如函数，对象，字符串，数字，布尔值，类等<br>4，每一个模块只加载一次，每一个 JS 只执行一次， 如果下次再去加载同目录下同文件，直接<br>   从内存中读取。 一个模块就是一个单例，或者说就是一个对象。</p>
+<p>关键字有两个，export负责对外开放接口，import负责加载模块。<br>但现在浏览器对ES6 Module的支持性还有些薄弱。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/04/Next训练营Day5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -331,10 +472,13 @@
       
         
           
-            <p>首先来对比一下工厂函数和构造函数，因为二者很想导致初学很容易弄混。</p>
+            <p>首先来对比一下工厂函数和构造函数，因为二者很像导致初学很容易弄混。</p>
 <p>这是工厂函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function functionFactory(name,age)&#123;</span><br><span class="line">    var o = &#123;&#125;;</span><br><span class="line">    o.name = name;</span><br><span class="line">    o.age = age;</span><br><span class="line">    o.getName = function()&#123;</span><br><span class="line">        return `my name is $&#123;this.name&#125;`</span><br><span class="line">    &#125;</span><br><span class="line">    return o;</span><br><span class="line">&#125;</span><br><span class="line">var xiaoming = functionFactory(&quot;xiaoming&quot;,13);</span><br><span class="line">console.log(xiaoming.getName());  //my name is xiaoming</span><br></pre></td></tr></table></figure></p>
 <p>这是构造函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var functionConstructor = function(name,age)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.age = age;</span><br><span class="line">    this.getName = function()&#123;</span><br><span class="line">        return `my name is $&#123;this.name&#125;`</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var xiaoming = new functionConstructor(&quot;xiaoming&quot;,13);</span><br><span class="line">console.log(xiaoming.getName());  //my name is xiaoming</span><br></pre></td></tr></table></figure></p>
 <p>单看代码，工厂函数和构造函数的区别为：<br>1.构造函数没有显示的创建对象。<br>2.工厂函数是通过在内部声明一个空对象并赋予这个对象新的属性和方法来实现的。而构造函数则赋给了this。<br>3.构造函数有return，调用函数即可生成新对象，而构造函数没有return，必须用new生成新实例。</p>
+<p>再看看两种函数都是如何返回对象的：<br>工厂函数就不必多说了，直接返回一个object。<br>构造函数则不同,在我们调用<code>var xiaoming = new functionConstructor(&quot;xiaoming&quot;,13)</code>时，内部发生了这些事：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var xiaoming = &#123;&#125;;</span><br><span class="line">xiaoming.__proto__ = functionConstructor.prototype; //</span><br><span class="line">functionCostructor.call(xiaoming);</span><br><span class="line">return xiaoming;</span><br></pre></td></tr></table></figure></p>
+<p>在性能上来说，构造函数可能比工厂函数略快，而且构造函数的this指向创建的新对象，可以使用instanceof来检测<br>对象是否为构造函数的实例。不过在某些特定场景下instanceof具有欺骗性，需要注意。而且在构造函数重构为工厂函数<br>时会有一些问题，这里不去深究。相比之下工厂函数不用担心重构问题，工厂函数的this不会指向新的对象，但是反过来<br>说也可以说明工厂函数的this指向明确。对象与工厂间不存在继承的关系，无法使用instanceof证实该对象出自于工厂<br>但反过来也可以说明工厂函数不会被instanceof欺骗。</p>
+<p>今天还讲到了一个arguments，他是一个类数组，可以拿到function里的参数，这里小扩展一下，要想以数组的形式拿到<br>function的参数，可以这样做：<br><code>[].slice.call(arguments)</code></p>
 
           
         
@@ -1418,142 +1562,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/23/今天玩闭包/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Li Xiao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="欢迎来到李骁的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/23/今天玩闭包/" itemprop="url">今天玩闭包</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-23T22:25:56+08:00">
-                2018-03-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3>此文章是关于js闭包</h3>
-
-<p>闭包，我的理解就是封装一个私有变量，闭包提供了访问这个私有变量的方法，闭包的优点是<br>可以有效避免全局污染，但缺点是闭包封装的变量无法释放，造成内存泄漏。闭包的大体形式<br>就是函数套着函数，最外层的函数返回里层的函数，而里层的函数里返回外层函数作用域中声<br>明的变量，这样一个闭包就完成了。</p>
-<p>先随手写一个闭包：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a = function()&#123;</span><br><span class="line">    var num = 10;</span><br><span class="line">    return (function()&#123;</span><br><span class="line">        return num;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">a()();</span><br></pre></td></tr></table></figure>
-<p>看，要想访问num这个变量，从外部直接访问是不行的，必须调用a()()这个方法才可以。<br>这里a()返回的是<code>function(){return num}</code>这个函数体，函数同样在js中也可以作为参数传入<br>一个函数，这是比较神奇的，毕竟js中万物皆为对象。a()()则是返回num。</p>
-<p>一般来说，这段函数可以写成这样：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a = (function()&#123;</span><br><span class="line">    var num = 10;</span><br><span class="line">    return (function()&#123;</span><br><span class="line">        return num</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)()</span><br><span class="line">a();</span><br></pre></td></tr></table></figure>
-<p>或者这样：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var a = function()&#123;</span><br><span class="line">    var num = 10;</span><br><span class="line">    return (function()&#123;</span><br><span class="line">        return num</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">var b = a();</span><br><span class="line">b();</span><br></pre></td></tr></table></figure>
-<p>再或者这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var a = function()&#123;</span><br><span class="line">    var num = 10;</span><br><span class="line">    return &#123;</span><br><span class="line">        returnNum:function()&#123;</span><br><span class="line">            return num</span><br><span class="line">    &#125;&#125;   </span><br><span class="line">&#125;</span><br><span class="line">var b = a();</span><br><span class="line">b.returnNum();</span><br></pre></td></tr></table></figure></p>
-<p>效果一样的。</p>
-<p>一般来说第3种方法可以批量封装私有变量，当你想要批量封装变量时第三种函数工厂模式还是比较<br>好的。</p>
-<p>今天先写这么多，明天接着写闭包进阶的玩法。</p>
-<p>比如最简单的计数器，如果你声明一个全局变量var count，然后每触发一次count++，那么如果你<br>在后面稍不留神将count赋了值或者操作了count那就很尴尬了。闭包可以完美解决这个问题。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var a = function()&#123;</span><br><span class="line">    var num = 0;</span><br><span class="line">    return (function()&#123;</span><br><span class="line">        return ++num;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">var b = a();</span><br><span class="line">b();</span><br><span class="line">b();</span><br><span class="line">b();   //输出3</span><br></pre></td></tr></table></figure>
-<p>明天见！</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1604,7 +1612,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
