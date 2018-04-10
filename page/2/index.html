@@ -260,6 +260,151 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/27/Next训练营Day1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Xiao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="欢迎来到李骁的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/27/Next训练营Day1/" itemprop="url">Next训练营Day1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-27T21:43:14+08:00">
+                2018-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>今天直播课主要是简单介绍了一下node的知识。</p>
+<p>初始化一个项目，首先<code>npm init</code>初始化生成一个package.json，也就是配置文件。</p>
+<p>打开package.json,里面是一个对象：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;day1&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;1.0.0&quot;,</span><br><span class="line">  &quot;description&quot;: &quot;hello world!&quot;,</span><br><span class="line">  &quot;main&quot;: &quot;helloworld.js&quot;,</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;author&quot;: &quot;li xiao&quot;,</span><br><span class="line">  &quot;license&quot;: &quot;ISC&quot;,</span><br><span class="line">  &quot;dependencies&quot;: &#123;</span><br><span class="line">    &quot;chalk&quot;: &quot;^2.3.2&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>就拿上面的配置文件举例，从上自下依次是：项目名称，项目版本，项目描述，项目的入口程序，项目作者，项目许可证和<br>项目依赖包。</p>
+<p>那么现在看主程序：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var chalk = require(&apos;chalk&apos;);</span><br><span class="line">var helloWorld = &quot;Hello World!!!&quot;;</span><br><span class="line">var color = [&quot;#FFD700&quot;,&quot;#FF3030&quot;,&quot;#EE00EE&quot;,&quot;#EE0000&quot;,&quot;#00E5EE&quot;,&quot;#00FFFF&quot;,&quot;#CDAD00&quot;,&quot;#8DEEEE&quot;,&quot;#00E5EE&quot;,&quot;#EEEE00&quot;,&quot;#EE0000&quot;,&quot;#00E5EE&quot;,&quot;#EE0000&quot;,&quot;#CDAD00&quot;];</span><br><span class="line">var output = &quot;&quot;;</span><br><span class="line"></span><br><span class="line">var chooseColor = function()&#123;</span><br><span class="line">	for(var i=0;i&lt;helloWorld.length;i++)&#123;</span><br><span class="line">        output += chalk.hex(color[i]).bold(helloWorld[i]);</span><br><span class="line">	&#125;;</span><br><span class="line">	return output;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">console.log(chooseColor());</span><br></pre></td></tr></table></figure>
+<p>chalk是一个可以美化命令行的npm包。</p>
+<p>在当前目录打开cmd输入<code>node helloworld</code>,就可以看到五颜六色的Hello World！！！了~~</p>
+<p>基础课是简单介绍了一下js的几种基本数据类型。</p>
+<p>js的基本数据类型分别是Undefined，Null，Boolean，Number，String和Object，以及Symbols（ES6）。</p>
+<p>这里着重讲一下Undefined和Null，这里老师讲的已经形象了。</p>
+<p><code>var bag = null</code> 我有个袋子，里面没装东西。<br><code>var something / var something = undefined</code> 我有个东西但不知道是什么。</p>
+<p>数据类型    Null    Undefined</p>
+<p>取值        null    undefined</p>
+<p>含义     数据为空   变量已声明但未初始化</p>
+<p>例子   var a = null   var a       </p>
+<p>typeof    object     undefined</p>
+<p>boolean   false        false</p>
+<p>至于为什么 typeof(null) === “object” 为true，这个问题是由于js的历史遗留问题造成的。<br>对此官方解释如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在 JavaScript 最初的实现中，JavaScript 中的值是由一个表示类型的标签和实际数据值表示的。</span><br><span class="line">对象的类型标签是 0。由于 null 代表的是空指针（大多数平台下值为 0x00），因此，null的类型</span><br><span class="line">标签也成为了 0，typeof null就错误的返回了&quot;object&quot;。</span><br></pre></td></tr></table></figure></p>
+<p>ECMA也曾提案过要把typeof(null)修正为null，但是失败了。。。。</p>
+<p>我们再来看看关于undefined和null的那些等式关系：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">null == null                   //true</span><br><span class="line">null == false / null ===false  //false</span><br><span class="line">null ==0 / nul===0             //false  null在设计上，在此处不尝试转型. 所以 结果为false.</span><br><span class="line">null&gt;0 / null&lt;0                //false  null 尝试转型为number , 则为0 . 所以结果为 false.</span><br><span class="line">null&gt;=0 / null&lt;=0              //true   null 尝试转为number ,则为0 , 结果为 true.</span><br><span class="line">null == undefined              //true</span><br><span class="line">null === undefined             //false</span><br><span class="line">null ==/===  &apos;&apos;/&#123;&#125;/[]          //false</span><br><span class="line"></span><br><span class="line">undefined == undefined         //true</span><br><span class="line">undefined == true/false        //false</span><br><span class="line">undefined == &apos;&apos;/[]/&#123;&#125;          //false</span><br><span class="line">undefined和0的任何比较         //false</span><br></pre></td></tr></table></figure>
+<p>对undefined和null的判断我们可以这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if(typeof(value)==&quot;undefined&quot;)&#123; </span><br><span class="line">    console.log(&quot;undefined&quot;); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if(value === null)&#123;</span><br><span class="line">    console.log(&quot;null&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/26/虐心的js原型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1473,131 +1618,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/14/codewars修炼之旅2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Li Xiao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="欢迎来到李骁的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/14/codewars修炼之旅2/" itemprop="url">codewars修行之旅2</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-14T20:31:41+08:00">
-                2018-03-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>题目：<br>Bob is preparing to pass IQ test. The most frequent task in this test is to find out which one of the given numbers differs from the others. Bob observed that one number usually differs from the others in evenness. Help Bob — to check his answers, he needs a program that among the given numbers finds one that is different in evenness, and return a position of this number.</p>
-<p>! Keep in mind that your task is to help Bob solve a real IQ test, which means indexes of the elements start from 1 (not 0)</p>
-<p>eg：iqTest(“2 4 7 8 10”) =&gt; 3    iqTest(“1 2 1 1”) =&gt; 2</p>
-<p>这道题的大概意思是找出一堆数字中不和谐的那个数并返回其位置,解决问题代码如下，结果黑盒测试却<br>各种过不了，最后才发现我以为这组数列必须是<b>等差数列</b>，不符合等差数列的数字就是错的，而题目要<br>求的实质就是让你找出一堆偶数中的奇数或者一堆奇数中的偶数。。。。。论审题的重要性</p>
-<p>码了挺多也不容易，记录一下。。。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">function iqTest(numbers)&#123;</span><br><span class="line">  a = numbers.split(&quot; &quot;);</span><br><span class="line">  arr = [];</span><br><span class="line">  for(i=0; i&lt;a.length; i++)&#123;</span><br><span class="line">      arr.push(Number(a[i]))</span><br><span class="line">  &#125;;</span><br><span class="line">  if(arr.length&lt;=3)&#123;</span><br><span class="line">      if(arr[0]==arr[1])&#123;return 3&#125;;</span><br><span class="line">      if(arr[1]==arr[2])&#123;return 1&#125;;</span><br><span class="line">      if(arr[0]==arr[2])&#123;return 2&#125;;</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">      /*这里我的思路是先假设前两个数都是正确的，以前两个数的差值作为基准，依次推</span><br><span class="line">      算后面的数字，如果后面的数字推测有正确的，说明前两个数字正确，只要找到后面</span><br><span class="line">      没有对应上的数字位置即可。如果后面推测的数字没有一个对应上的，说明前两个数</span><br><span class="line">      字有个错的，那么最后两个数字一定是对的，那么就以最后两个数字作为基准，校验</span><br><span class="line">      前面的数字即可。*/</span><br><span class="line">      var dif = arr[1] - arr[0];</span><br><span class="line">      for(i=2; i&lt;arr.length; i++)&#123;</span><br><span class="line">          if((arr[0] + dif*i) == arr[i])&#123;</span><br><span class="line">              for(j=2; j&lt;arr.length; j++)&#123;</span><br><span class="line">                  if((arr[0] + dif*j) != arr[j])&#123;</span><br><span class="line">                      return j+1;</span><br><span class="line">                  &#125;;</span><br><span class="line">              &#125;;   </span><br><span class="line">          &#125;else&#123;</span><br><span class="line">              dif = arr[arr.length-1]-arr[arr.length-2];</span><br><span class="line">              for(i=2; i&lt;=arr.length; i++)&#123;</span><br><span class="line">                  if((arr[arr.length-1] - dif*i) != arr[arr.length-1-i])&#123;</span><br><span class="line">                      return arr.length-i;</span><br><span class="line">                  &#125;;</span><br><span class="line">              &#125;;</span><br><span class="line">          &#125;;</span><br><span class="line">      &#125;;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1648,7 +1668,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
