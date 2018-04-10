@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="欢迎来到李骁的博客">
 <meta property="og:description" content="今天来说说函数的重构吧。 首先说说什么是函数的重构，就是一个相同名字的函数但是会根据不同的需求从而调用不同的功能。 需求的不同可以根据参数的数量，或者是参数的类型来反映。 按理说，js的函数本身是不存在重构这种功能的，但我们可以通过一系列的操作来模拟出函数的重构。 最简单的： 123456789var num = function()&amp;#123;    if(arguments.length ==">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-09T14:04:24.293Z">
+<meta property="og:updated_time" content="2018-04-10T02:10:33.680Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js函数的重构">
 <meta name="twitter:description" content="今天来说说函数的重构吧。 首先说说什么是函数的重构，就是一个相同名字的函数但是会根据不同的需求从而调用不同的功能。 需求的不同可以根据参数的数量，或者是参数的类型来反映。 按理说，js的函数本身是不存在重构这种功能的，但我们可以通过一系列的操作来模拟出函数的重构。 最简单的： 123456789var num = function()&amp;#123;    if(arguments.length ==">
@@ -339,16 +339,12 @@
 <p>怎么样，同样是函数函数num(),我们用他定义了不同的功能，这就是函数的重构。</p>
 <p>其实函数的重构往往发生于以下的场景，比如你发现这个项目的某函数已经不满足当前需求了，需要扩展功能，而这个函数已经被这个项目其他<br>模块调用了，如果重新定义该函数那么所有引用到该函数的模块都要重改，从而牵一发而动全身。对此我们需要函数的重构，在不影响以前的功能<br>的情况下增加新的功能。</p>
 <p>那么除了上面例子中的代码外，我们有没有其他的重构函数的方法呢？答案是肯定的。</p>
-<p>让我们来看看老爷子是怎么重构的：</p>
+<p>让我们来看看jQuery之父是怎么重构的：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var num = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">function addMethod (obj,name,fn) &#123;</span><br><span class="line">    var ex = obj[name];</span><br><span class="line">    obj[name] = function()&#123;</span><br><span class="line">        if(arguments.length === fn.length)&#123;</span><br><span class="line">            return fn.apply(this,arguments);</span><br><span class="line">        &#125;</span><br><span class="line">        else if(typeof ex === &quot;function&quot;)&#123;</span><br><span class="line">            return ex.apply(this,arguments);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">addMethod(num,&quot;method&quot;,function()&#123;console.log(&quot;this is method 0&quot;);&#125;);</span><br><span class="line">addMethod(num,&quot;method&quot;,function(a)&#123;console.log(&quot;this is method 1&quot;);&#125;);</span><br><span class="line">addMethod(num,&quot;method&quot;,function(a,b)&#123;console.log(&quot;this is method 2&quot;);&#125;);</span><br><span class="line"></span><br><span class="line">num.method();   // this is method 0</span><br></pre></td></tr></table></figure>
-<p>看完之后还是要感慨一下毕竟是js之父，代码之精妙，短短几行代码里就包含着闭包和回溯两种思想。</p>
+<p>看完之后还是要感慨一下毕竟是jQuery之父，不愧是能想出jQuery.prototype.init.prototype = jQuery.prototype的人，代码之精妙（变态），短短几行代码里就包含着闭包和回溯两种思想。</p>
 <p>让我们来逐行分析一下。</p>
-<p>首先来看function addMethod(),开始首先定义了一个变量ex，这个变量保存的是“上次”我们所定义的对象的方法，这个“上次”也神奇，<br>我感觉这也正是这种重构方法的神来之笔。具体下文中会讲到。然后接下来就是给我们要添加的对象的方法赋值了，我们赋予它一个function<br>如果你调用的方法中的参数数量与你刚刚定义的方法中的参数数量相等，那么恭喜你，不需要繁杂的回溯过程了，可以直接调用。否则，则用<br>你上一轮定义的方法让这个流程再走一遍，直到找到满足第一个条件或者没有符合的条件遍历失败结束。</p>
-<p>接下来我们就要调用我们的addMethod函数了，首先我们先来看看执行第一条addMethod函数时内部到底执行了什么：</p>
-<p>首先，我们吧num.method方法赋予给了我们的ex变量，但是这是我们根本没有定义num.method，也就是说我们的num.method还处于一个undefined的<br>状态，所以这里ex被赋予的值是”undefined”。然后接来下我们才定义num.method到底是什么，定义了一个function()。</p>
-<p>这里就不得不提到我之前写闭包的那篇博客，里面闭包有这样一个应用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var a = []</span><br><span class="line">var b = []</span><br><span class="line">for(var i=0;i&lt;10;i++)&#123;</span><br><span class="line">    a[i] = function(i)&#123;</span><br><span class="line">                return(function()&#123;</span><br><span class="line">                    console.log(i);</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;;</span><br><span class="line">   b[i] = a[i](i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">b[2]();    //2</span><br></pre></td></tr></table></figure>
-<p>最后能输出0~9而不是10个10，全靠闭包，因为在定义a i = function(i)的时候已经把i传了进去，老爷子写的函数重构正是应用了这种原理。<br>可能有些人有了疑问，在定义object.name = function(){}的时候明明什么参数都没有传啊？实则不然。我们知道js的函数给了我们这么几个<br>隐形的参数，比如arguments，还有就是function.length，他代表这个函数在定义时默认的接受参数的数量，在我们给num.method添加<br>function(){console.log(“this is method 0”)}的时候，他的属性length=0已经悄然传入内部。</p>
+<p>首先来看function addMethod(),开始首先定义了一个变量ex，这个变量提取的是“上次”我们所定义的对象的方法，这个“上次”很神奇，<br>我感觉这也正是这种重构方法的神来之笔。具体下文中会讲到。然后接下来就是给我们要添加的对象的方法赋值了，我们赋予它一个function<br>如果你调用的方法中的参数数量与你刚刚定义的方法中的参数数量相等，那么恭喜你，不需要繁杂的回溯过程了，可以直接调用。否则，则用<br>你上一轮定义的方法让这个流程再走一遍，直到找到满足第一个条件或者没有符合的条件遍历失败结束。</p>
+<p>这种方法好处是有的，就是可以使用一个addMethod()函数轻松给任意对象添加任意方法，但弊端也很多，比如这种方法只能根据参数的多少来<br>完成重构，并不能识别参数的类型。而且这种方法对性能要求较高，因为每失败一次都要去遍历之前的方法。</p>
 
       
     </div>
