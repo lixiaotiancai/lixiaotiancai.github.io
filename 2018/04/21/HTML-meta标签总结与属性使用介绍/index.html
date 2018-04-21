@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="codewars," />
+  <meta name="keywords" content="meta，head，html," />
 
 
 
@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="本文的重点是是关于JS的BigInteger的加法运算 今天在codewars上刷到一道题，题目大概是实现两个字符串数字相加，最后返回一个数字字符串 eg： sumString(“123”,”456”)  =&amp;gt; “579” 我不以为然的直接return (parseInt(a)+parseInt(b)).toString()结果显而易见，黑盒测试报错了一片。错误原因是因为精度不准。 这是由于">
-<meta name="keywords" content="codewars">
+<meta name="description" content="简介  想看谷歌对meta标签的解释：The  tag provides metadata about the HTML document. Metadata will not be displayed on the page,but will be machine parsable.翻译过来就是：meta标签提供了一个叫metadata的元数据，也就是用于描述数据的数据。他不会显示在页面上，但是">
+<meta name="keywords" content="meta，head，html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="codewars修行之旅3">
-<meta property="og:url" content="http://yoursite.com/2018/03/15/codewars修行之旅3/index.html">
+<meta property="og:title" content="HTML meta标签总结与属性使用介绍">
+<meta property="og:url" content="http://yoursite.com/2018/04/21/HTML-meta标签总结与属性使用介绍/index.html">
 <meta property="og:site_name" content="欢迎来到李骁的博客">
-<meta property="og:description" content="本文的重点是是关于JS的BigInteger的加法运算 今天在codewars上刷到一道题，题目大概是实现两个字符串数字相加，最后返回一个数字字符串 eg： sumString(“123”,”456”)  =&amp;gt; “579” 我不以为然的直接return (parseInt(a)+parseInt(b)).toString()结果显而易见，黑盒测试报错了一片。错误原因是因为精度不准。 这是由于">
+<meta property="og:description" content="简介  想看谷歌对meta标签的解释：The  tag provides metadata about the HTML document. Metadata will not be displayed on the page,but will be machine parsable.翻译过来就是：meta标签提供了一个叫metadata的元数据，也就是用于描述数据的数据。他不会显示在页面上，但是">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-15T12:32:01.547Z">
+<meta property="og:updated_time" content="2018-04-21T04:21:08.063Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="codewars修行之旅3">
-<meta name="twitter:description" content="本文的重点是是关于JS的BigInteger的加法运算 今天在codewars上刷到一道题，题目大概是实现两个字符串数字相加，最后返回一个数字字符串 eg： sumString(“123”,”456”)  =&amp;gt; “579” 我不以为然的直接return (parseInt(a)+parseInt(b)).toString()结果显而易见，黑盒测试报错了一片。错误原因是因为精度不准。 这是由于">
+<meta name="twitter:title" content="HTML meta标签总结与属性使用介绍">
+<meta name="twitter:description" content="简介  想看谷歌对meta标签的解释：The  tag provides metadata about the HTML document. Metadata will not be displayed on the page,but will be machine parsable.翻译过来就是：meta标签提供了一个叫metadata的元数据，也就是用于描述数据的数据。他不会显示在页面上，但是">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/15/codewars修行之旅3/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/21/HTML-meta标签总结与属性使用介绍/"/>
 
 
 
 
 
-  <title>codewars修行之旅3 | 欢迎来到李骁的博客</title>
+  <title>HTML meta标签总结与属性使用介绍 | 欢迎来到李骁的博客</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/15/codewars修行之旅3/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/21/HTML-meta标签总结与属性使用介绍/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Li Xiao">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">codewars修行之旅3</h1>
+          <h1 class="post-title" itemprop="name headline">HTML meta标签总结与属性使用介绍</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-15T19:53:19+08:00">
-                2018-03-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-21T11:19:34+08:00">
+                2018-04-21
               </time>
             
 
@@ -330,28 +330,39 @@
       
 
       
-        <p><strong><h2>本文的重点是是关于JS的BigInteger的加法运算</h2></strong></p>
-<p>今天在codewars上刷到一道题，题目大概是实现两个字符串数字相加，最后返回一个数字字符串</p>
-<p>eg： sumString(“123”,”456”)  =&gt; “579”</p>
-<p>我不以为然的直接<code>return (parseInt(a)+parseInt(b)).toString()</code>结果显而易见，黑盒测试报错了<br>一片。错误原因是因为精度不准。</p>
-<p>这是由于js自身进度问题所导致的，js在数字超过17位时，就不行了。在控制台打出123456789012345678</p>
-<p>按下回车，他会返回一个123456789012345680，数字再大就会返回类似1.2345678901234568e+21的值。</p>
-<p>也就是说在运算大型数字时，普通的加减乘除是不行了，那么我们应该怎么处理呢。</p>
-<p>其实思路就是和小学学过的竖式差不多，把列竖式的过程用代码写出来，就可以了。</p>
-<p>代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function sumStrings(a, b) &#123;</span><br><span class="line">  var res = &apos;&apos;, c = 0;</span><br><span class="line">  a = a.split(&apos;&apos;);</span><br><span class="line">  b = b.split(&apos;&apos;);</span><br><span class="line">  while (a.length || b.length || c) &#123;</span><br><span class="line">    c += ~~a.pop() + ~~b.pop();</span><br><span class="line">    res = c % 10 + res;</span><br><span class="line">    c = c &gt; 9;</span><br><span class="line">  &#125;</span><br><span class="line">  return res.replace(/^0+/, &apos;&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>变量res用于记录各位的数字，而c是用于记录是否存在进位。</p>
-<p>开始先对字符串a，b做了一个split()操作，目的是为了把字符串打散成一个存着当个字符的Array()数组<br>便于我们之后的pop()操作。</p>
-<p>while循环判定条件，只要a的长度或者b长度或者c不为0，循环就可以继续进行。</p>
-<p>接下来见到了一个较为陌生的运算符 ~~ </p>
-<p>~~是一种利用符号进行的类型转换,转换成数字类型</p>
-<p>效果如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">~~true == 1</span><br><span class="line">~~false == 0</span><br><span class="line">~~&quot;&quot; == 0</span><br><span class="line">~~[] == 0</span><br><span class="line"></span><br><span class="line">~~undefined ==0</span><br><span class="line">~~!undefined == 1</span><br><span class="line">~~null == 0</span><br><span class="line">~~!null == 1</span><br></pre></td></tr></table></figure>
-<p><code>这个运算符应用于本题就十分的方便，首先，当a[]pop空了，而b[]还没有pop空时，~~a[]可以直接返回0
-省去了我们开始还要比较a,b的长度，长度短的前段补0的烦恼。其次，当c为True时，~~c直接返回1，从
-而可以达到进位的目的。</code></p>
-<p>其他就没有什么好说的了。</p>
-<p>本题主要收获两点：1.Js的大整数进度运算问题。2.~~运算符。</p>
+        <h2>简介</h2>
+
+<p>想看谷歌对meta标签的解释：<br>The <meta> tag provides metadata about the HTML document. Metadata will not be displayed on the page,but will be machine parsable.<br>翻译过来就是：<br>meta标签提供了一个叫metadata的元数据，也就是用于描述数据的数据。他不会显示在页面上，但是机器却可以识别。</p>
+<p>用处：<br>meta常用于定义页面的说明，关键字，最后修改日期，和其他的元数据。这些元数据服务于浏览器（如何布局或重载页面），搜索引擎和其他网络<br>服务。</p>
+<h2>组成</h2>
+
+<p>meta标签一共有两个属性，分别是http-equiv属性和name属性。</p>
+<h3>name属性</h3>
+
+<p>name属性主要用于描述网页，比如网页的关键词，叙述等。与之对应的属性值为content，content中的内容是对name填入类型的具体描述，便于搜索<br>引擎的抓取。</p>
+<p>meta标签中name属性语法格式是：<br><code>&lt;meta name=&quot;参数&quot; content=&quot;具体的描述&quot;&gt;</code></p>
+<p>其中name属性共有以下几种参数。</p>
+<p>1.keywords<br>说明：用于告诉搜索引擎，你网页的关键字。<br>eg <code>&lt;meta name=&quot;keywords&quot; content=&quot;李骁，博客，前端&quot;&gt;</code></p>
+<p>2.description<br>说明：用于告诉搜索引擎，你网站的主要内容。<br>eg <code>&lt;meta name=&quot;description&quot; content=&quot;李骁，这里是我的个人博客&quot;&gt;</code></p>
+<p>3.viewport<br>说明：这个属性常用于设计移动端网页，在用bootstrap，AmazeUI等框架时都有用过viewport。<br>eg <code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, intial-scale=1&quot;&gt;</code></p>
+<p>4.robots<br>说明：robots用来告诉爬虫哪些页面需要索引，哪些页面不需要索引。content的参数有all，index，noindex，follow，nofollow。默认是all。<br>eg <code>&lt;meta name=&quot;robots&quot; content=&quot;none&quot;&gt;</code><br>具体参数如下：<br>  1.none：搜索引擎将忽略此网页，等价于noindex，nofollow。<br>  2.noindex：搜索引擎不索引此网页。<br>  3.nofolllow：索引引擎不继续通过此网页的链接索引其他的网页。<br>  4.all：搜索引擎将索引此网页与继续通过此网页的链接索引，等价于index，follow。<br>  5.index：搜索引擎索引此网页。<br>  6.follow：搜索引擎继续通过此网页的链接索引搜索其他的网页。</p>
+<p>5.author<br>说明：用于标注网页作者。<br>eg：<code>&lt;meta name=&quot;author&quot; content=&quot;lixiao,1422975258@qq.com&quot;&gt;</code></p>
+<p>6.generator<br>说明：用于表明网页是设么软件做的。<br>eg：<code>&lt;meta name=&quot;generator&quot; content=&quot;Sublime Text3&quot;&gt;</code></p>
+<p>7.conpyright<br>说明：用于标注版权信息。<br>eg: <code>&lt;meta name=&quot;copyright&quot; content=&quot;lixiao&quot;&gt;</code></p>
+<p>8.revisit-after(搜索引擎爬虫重访时间)<br>说明：如果页面不是经常更新，为了减轻搜索引擎爬虫对服务器带来的压力，可以设置一个爬虫的重访时间。如果重访时间过短，爬虫将按他们定义<br>的时间来访问。<br>eg: <code>&lt;meta name=&quot;revisit-after&quot; content=&quot;7 days&quot;&gt;</code></p>
+<p>9.renderer(双核浏览器渲染方式)<br>说明：render是为双核浏览器准备的，用于指定双核浏览器默认以何种方式渲染页面。比如360浏览器。<br>eg：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;renderer&quot; content=&quot;webkit&quot;&gt;   //默认webkit内核</span><br><span class="line">&lt;meta name=&quot;renderer&quot; content=&quot;ie-comp&quot;&gt;  //默认IE兼容模式</span><br><span class="line">&lt;meta name=&quot;renderer&quot; content=&quot;ie-stand&quot;&gt; //默认IE标准模式</span><br></pre></td></tr></table></figure></p>
+<h3>http-equiv</h3>
+
+<p>相当于HTTP的作用，比如定义些HTTP参数啥的。</p>
+<p>meta标签中的http-quiv属性语法格式是：<br><code>&lt;meta http-equiv=&quot;参数&quot; content=&quot;具体的描述&quot;&gt;</code></p>
+<p>其中http-equiv属性主要有以下几种参数：</p>
+<p>1.content-Type<br>说明：用于设定网页字符集，便于浏览器解析与渲染页面。<br>eg：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=&quot;content-Type&quot; content=&quot;text/html;charset=utf-8&quot;&gt; //旧的HTML，不推荐</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;&gt; //HTML5设定网页字符集的方式，推荐使用UTF-8</span><br></pre></td></tr></table></figure></p>
+<p>2.X-UA-Compatible（浏览器采取何种版本渲染当前页面）<br>说明：用于告诉浏览器以何种版本来渲染页面（一般都设置为最新模式，在各大框架中这个设置也很常见。）<br>eg：<code>&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;&gt; //指定IE和Chrome使用最新版本渲染当前页面</code></p>
+<p>3.cache-control(指定请求和响应遵循的缓存机制)<br>用法1：<br>说明：指导浏览器如何缓存某个响应以及缓存多长时间。<br>eg：<code>&lt;meta http-equiv=&quot;cache-control&quot; content=&quot;no-cache&quot;&gt;</code><br>共有一下几种用法：<br>  1.no-cache:先发送请求，与服务器确认该资源是否被更改，如果未被更改，则使用缓存。<br>  2.no-store：不允许使用缓存，每次都要去服务器上，下载完整的响应。（安全措施）<br>  3.public：缓存所有响应，但并非必须。因为max-age也可以做到相同效果。<br>  4.private：只为单个用户缓存，因此不允许任何中继进行缓存。（比如CDN就不允许缓存private的响应）<br>  5.maxage：表示当前请求开始，该响应在多久内能被缓存和重用，而不去服务器重新请求。 例如：max-age=60表示响应可以再缓存和重用60s。</p>
+<p>用法2：禁止百度自动转码<br>说明：用于禁止当前页面在移动端浏览时，被百度自动转码。虽然百度的本意是好的，但是转码效果很多时候却不尽人意。所以可以再head中<br>加入以下这句来禁止百度转码。<br>eg: <code>&lt;meta http-equiv=&quot;Cache-Control&quot; content=&quot;no=siteapp&quot;&gt;</code></p>
+<p>4.expires(网页到期时间)<br>说明：用于设定网页的到期时间，过期后网页必须到服务器上重新传输。<br>eg：<code>&lt;meta http-eqiv=&quot;expires&quot; contents=&quot;Sunday 26 October 2018 07:00 GMT&quot;&gt;</code></p>
+<p>5.refresh(自动刷新并指向某网页)<br>说明：网页将在设定的时间内，自动刷新并调向设定的网址。<br>eg：<code>&lt;meta http-equiv=&quot;refresh&quot; content=&quot;2;URL=http://www.baidu.com&quot;&gt;</code></p>
+<p>6.Set-Cookie<br>说明：如果网页过期。那么这个网页存在本地的cookies也会被自动删除。<br>eg:<code>&lt;meta http-equiv=&quot;Set-Cookie&quot; content=&quot;User=lixiao;path=/;expires=Sunday,10-Jan-16 10:00:00 GMT&quot;&gt;</code></p>
 
       
     </div>
@@ -369,7 +380,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/codewars/" rel="tag"># codewars</a>
+            <a href="/tags/meta，head，html/" rel="tag"># meta，head，html</a>
           
         </div>
       
@@ -382,8 +393,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/14/codewars修炼之旅2/" rel="next" title="codewars修行之旅2">
-                <i class="fa fa-chevron-left"></i> codewars修行之旅2
+              <a href="/2018/04/10/jQuery的诞生/" rel="next" title="jQuery的诞生">
+                <i class="fa fa-chevron-left"></i> jQuery的诞生
               </a>
             
           </div>
@@ -392,8 +403,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/16/codewars修行之旅3-1/" rel="prev" title="codewars修行之旅3.1">
-                codewars修行之旅3.1 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/21/浏览器内核/" rel="prev" title="浏览器内核">
+                浏览器内核 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -519,7 +530,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">本文的重点是是关于JS的BigInteger的加法运算</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">组成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">name属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">http-equiv</span></a></li></ol></li></ol></div>
             
 
           </div>
